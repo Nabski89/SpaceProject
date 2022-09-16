@@ -78,13 +78,14 @@ public class ShipGun : MonoBehaviour
             mousePos.x = Input.mousePosition.x;
             mousePos.y = Input.mousePosition.y;
 
-
-            point = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10f));
-           // Debug.Log(point);
-
-            transform.LookAt(point, Vector3.up);
+            point = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.parent.position.z-Camera.main.transform.position.z));
 
 
+
+            //left up back
+            transform.LookAt(point, Vector3.left);
+
+            // Debug.Log(point);
             //  Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.back));
 
             if (transform.position != transform.parent.position)
@@ -94,10 +95,13 @@ public class ShipGun : MonoBehaviour
             else
                 if (Input.GetMouseButtonDown(0))
             {
-                GameObject FIRE = Instantiate(Ammo, transform.position + Vector3.back + transform.up, Quaternion.identity, transform.parent.parent);
-                FIRE.GetComponent<Rigidbody>().velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.up;
-                transform.position = transform.position - transform.up * 0.5f;
+            //  Vector3.back +
+                GameObject FIRE = Instantiate(Ammo, transform.position + transform.forward, Quaternion.identity, transform.parent.parent);
+                FIRE.GetComponent<Rigidbody>().velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward;
+                transform.position = transform.position - transform.forward * 0.5f;
             }
+
+            //transform forward right up
         }
         else
         {
