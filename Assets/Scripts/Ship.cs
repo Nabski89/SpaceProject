@@ -27,11 +27,28 @@ public class Ship : MonoBehaviour
 
         QualitySettings.vSyncCount = 0;  // VSync must be disabled
         Application.targetFrameRate = 60;
+
+        AmmoCount.Add(AmmunitionEnum.Ammo1, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo2, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo3, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo4, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo5, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo6, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo7, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo8, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo9, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo0, Random.Range(0, 25));
     }
 
+    //ammo-cargo things
+    public enum AmmunitionEnum { Ammo1, Ammo2, Ammo3, Ammo4, Ammo5, Ammo6, Ammo7, Ammo8, Ammo9, Ammo0 };
+    //Make a dictionary with that type, and a quantity
+    public static Dictionary<AmmunitionEnum, int> AmmoCount = new Dictionary<AmmunitionEnum, int>();
 
     void Update()
     {
+        if (transform.position.z != 0)
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         if (Input.GetKeyDown("w"))
         {
             if (RearEngine1.activeSelf == false)

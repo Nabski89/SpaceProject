@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 3516752580614740465}
   - component: {fileID: 3286152635231057784}
   - component: {fileID: 9137212898413625615}
+  - component: {fileID: -2614673937417787545}
   m_Layer: 4
-  m_Name: Ammo
+  m_Name: 1-Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -2356527901718980236, guid: 4b6d1975f23a14c45b2469189212599a, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec4604d8c20a4499dfaf5dfe5f2ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Shrink: 0
 --- !u!54 &9137212898413625615
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -111,7 +113,20 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 8
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!65 &-2614673937417787545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156741480967927844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5492244427462859768
 PrefabInstance:
   m_ObjectHideFlags: 0
