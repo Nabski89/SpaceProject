@@ -113,6 +113,12 @@ public class ShipGun : MonoBehaviour
                     Rigidbody RB = FIRE.GetComponent<Rigidbody>();
                     RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward;
                     transform.position = transform.position - transform.forward * 0.5f * RB.mass;
+                    if (FIRE.GetComponent<FiredFromCannon>() == true)
+                        FIRE.GetComponent<FiredFromCannon>().AmmoType = AmmoType;
+                    if (AmmoType == Ship.AmmunitionEnum.Ammo0)
+                    {
+                        RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward + transform.forward;
+                    }
                 }
             }
 

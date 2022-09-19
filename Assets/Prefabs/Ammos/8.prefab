@@ -152,7 +152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156741480967927844, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Name
-      value: Ammo Variant
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286152635231057784, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
+      propertyPath: AmmoType
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Materials.Array.size

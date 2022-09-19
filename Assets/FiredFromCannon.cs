@@ -6,6 +6,7 @@ public class FiredFromCannon : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool Shrink = false;
+    public Ship.AmmunitionEnum AmmoType;
     void Start()
     {
         GetComponent<Rigidbody>().AddTorque(transform.forward * Random.Range(0, 25));
@@ -21,9 +22,19 @@ public class FiredFromCannon : MonoBehaviour
         if (Shrink == true)
         {
             transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
-            transform.position -= Vector3.back*0.5f;
+            transform.position -= Vector3.back * 0.5f;
             if (transform.localScale.x < 0.1)
                 Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Ship ShipHit = other.GetComponent<Ship>();
+        if (ShipHit != null)
+        {
+            Ship.AmmoCount[AmmoType] += 1;
+            Destroy(gameObject);
         }
     }
 }

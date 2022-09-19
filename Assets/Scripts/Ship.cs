@@ -37,7 +37,7 @@ public class Ship : MonoBehaviour
         AmmoCount.Add(AmmunitionEnum.Ammo7, Random.Range(0, 25));
         AmmoCount.Add(AmmunitionEnum.Ammo8, Random.Range(0, 25));
         AmmoCount.Add(AmmunitionEnum.Ammo9, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo0, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo0, 5);
     }
 
     //ammo-cargo things
@@ -45,8 +45,19 @@ public class Ship : MonoBehaviour
     //Make a dictionary with that type, and a quantity
     public static Dictionary<AmmunitionEnum, int> AmmoCount = new Dictionary<AmmunitionEnum, int>();
 
+    float AmmoTimer = 5;
     void Update()
     {
+        if (Ship.AmmoCount[Ship.AmmunitionEnum.Ammo0] < 5.0f)
+        {
+            AmmoTimer -= Time.deltaTime;
+            if (AmmoTimer < 0)
+            {
+                AmmoTimer += 5;
+                AmmoCount[AmmunitionEnum.Ammo0] += 1;
+            }
+        }
+
         if (transform.position.z != 0)
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         if (Input.GetKeyDown("w"))
