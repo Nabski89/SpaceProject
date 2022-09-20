@@ -13,10 +13,12 @@ public class Shop : MonoBehaviour
     public int StockNumber;
     public float StockHave;
     public float StockWant;
+    TMPro.TextMeshPro FloatingPrice;
+
 
     void Start()
     {
-
+        FloatingPrice = GetComponentInChildren<TMPro.TextMeshPro>();
         GetComponent<Rigidbody>().AddTorque(transform.forward * 5);
         StockNumber = Random.Range(0, BuySell.Length);
         Display = Instantiate(BuySell[StockNumber], transform.position - transform.forward * 6.5f, Quaternion.identity, transform);
@@ -25,7 +27,12 @@ public class Shop : MonoBehaviour
         StockWant = Random.Range(5, 10);
         StockHave = Random.Range(0, StockWant * 2);
     }
+    void Update()
+    {
+        int Display = Mathf.RoundToInt(Price * (StockWant + 5f) / (StockHave + 5f));
+        FloatingPrice.text = Display.ToString();
 
+    }
     void OnTriggerEnter(Collider other)
     {
         FiredFromCannon FiredFromCannon = other.GetComponent<FiredFromCannon>();
@@ -36,12 +43,19 @@ public class Shop : MonoBehaviour
             {
                 FiredFromCannon.Shrink = true;
                 Ship.AmmoCount[Ship.AmmunitionEnum.Ammo9] += Mathf.RoundToInt(Price * (StockWant + 5f) / (StockHave + 5f));
+                StockHave += 1;
             }
             if (FiredFromCannon.AmmoType == Ship.AmmunitionEnum.Ammo9)
             {
-                Ship.AmmoCount[Ship.AmmunitionEnum.Ammo9] -= Mathf.RoundToInt(Price * (StockWant + 5f) / (StockHave + 5f));
-                GameObject Purchase = Instantiate(BuySell[StockNumber], new Vector3(transform.position.x - 1, transform.position.y, 0), Quaternion.identity, transform);
-                Purchase.GetComponent<FiredFromCannon>().PickUpAble = true;
+                //check that the ship will still have money and that it isn't the last one in stock
+                if (StockHave > 0 && Ship.AmmoCount[Ship.AmmunitionEnum.Ammo9] - (Mathf.RoundToInt(Price * (StockWant + 5f) / (StockHave + 5f))) > 0)
+                {
+                    Ship.AmmoCount[Ship.AmmunitionEnum.Ammo9] -= Mathf.RoundToInt(Price * (StockWant + 5f) / (StockHave + 5f));
+                    GameObject Purchase = Instantiate(BuySell[StockNumber], new Vector3(transform.position.x - 1, transform.position.y, 0), Quaternion.identity, transform);
+                    Purchase.GetComponent<FiredFromCannon>().PickUpAble = true;
+                    StockHave -= 1;
+                    Destroy(other.gameObject);
+                }
             }
 
         }

@@ -8,6 +8,13 @@ public class FiredFromCannon : MonoBehaviour
 
     // each has a high and low tier
     //Raw Materials, Furniture, Pets, Crew, Money/Pull
+    //rock, chest, table, potion, bug, mushroom, lizard, human
+
+    //Hmmmm I should come up with some kind of pricing and scaling
+    //the second of each type is the more expensive one, but how does each group go from one price catagory to the next
+    // I could add SIZE+MASS so that you may want to fill up on a bulky thing and a heavy thing or a bunch of medium
+    // anyways I'm going with 3x the lower tier, then 80%ish of the high tier of the tier before
+    // 15 - 45, 35 - 105, 80 - 240, 190 - 570
     public bool Shrink = false;
     public Ship.AmmunitionEnum AmmoType;
     public int BaseValue;

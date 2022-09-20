@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1196362943419610126
+--- !u!1001 &1124839826780888675
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1669415575638125883, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -6692290496178104961, guid: dbd1f5cae90bdd6418dd66c0429ed823, type: 3}
+      objectReference: {fileID: 3935205507484862964, guid: 53a8fd752b40ebd419a7875a6af5406c, type: 3}
     - target: {fileID: 2343330902293422750, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,15 +65,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3286152635231057784, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: BaseValue
-      value: 75
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -6801115930245908577, guid: 4b6d1975f23a14c45b2469189212599a, type: 3}
+      objectReference: {fileID: 3553038159349079535, guid: 53a8fd752b40ebd419a7875a6af5406c, type: 3}
+    - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -212811262493398796, guid: 53a8fd752b40ebd419a7875a6af5406c, type: 3}
+    - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4cf17ea8a74966f4ca5fa6c01d4e3f3f, type: 2}
     - target: {fileID: 9137212898413625615, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Mass
-      value: 3
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}

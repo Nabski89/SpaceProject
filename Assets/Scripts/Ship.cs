@@ -24,19 +24,21 @@ public class Ship : MonoBehaviour
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody>();
+        //this apparently keeps it from spinning in stupid directions
+        m_Rigidbody.inertiaTensorRotation = Quaternion.identity;
 
         QualitySettings.vSyncCount = 0;  // VSync must be disabled
         Application.targetFrameRate = 60;
 
-        AmmoCount.Add(AmmunitionEnum.Ammo1, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo2, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo3, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo4, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo5, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo6, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo7, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo8, Random.Range(0, 25));
-        AmmoCount.Add(AmmunitionEnum.Ammo9, Random.Range(0, 25));
+        AmmoCount.Add(AmmunitionEnum.Ammo1, Random.Range(0, 16));
+        AmmoCount.Add(AmmunitionEnum.Ammo2, Random.Range(0, 14));
+        AmmoCount.Add(AmmunitionEnum.Ammo3, Random.Range(0, 12));
+        AmmoCount.Add(AmmunitionEnum.Ammo4, Random.Range(0, 10));
+        AmmoCount.Add(AmmunitionEnum.Ammo5, Random.Range(0, 8));
+        AmmoCount.Add(AmmunitionEnum.Ammo6, Random.Range(0, 6));
+        AmmoCount.Add(AmmunitionEnum.Ammo7, Random.Range(0, 4));
+        AmmoCount.Add(AmmunitionEnum.Ammo8, 3);
+        AmmoCount.Add(AmmunitionEnum.Ammo9, 1);
         AmmoCount.Add(AmmunitionEnum.Ammo0, 5);
     }
 
