@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: AmmoType
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3286152635231057784, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
+      propertyPath: BaseValue
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Materials.Array.size
       value: 5
@@ -70,7 +74,7 @@ PrefabInstance:
     - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3516752580614740465, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 

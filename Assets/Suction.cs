@@ -30,7 +30,7 @@ public class Suction : MonoBehaviour
             m_Rigidbody.AddTorque(transform.forward * 5000);
             m_Rigidbody.AddForce(-30 * m_Rigidbody.mass * GetComponent<Rigidbody>().velocity);
             //change the layer to default because the default layer doesn't collide with the ship
-            other.transform.gameObject.layer = 0;
+            FiredFromCannon.PickUpAble = true;
         }
     }
 }

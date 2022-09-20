@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3286152635231057784}
   - component: {fileID: 9137212898413625615}
   - component: {fileID: -2614673937417787545}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: 1-Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shrink: 0
+  AmmoType: 0
+  BaseValue: 10
+  PickUpAble: 0
 --- !u!54 &9137212898413625615
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,7 +143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3577910370561141622, guid: 9722d1e0c3300894d94abddd0b460b2d, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4719783902060755360, guid: 9722d1e0c3300894d94abddd0b460b2d, type: 3}
       propertyPath: m_RootOrder

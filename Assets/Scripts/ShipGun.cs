@@ -107,8 +107,13 @@ public class ShipGun : MonoBehaviour
                 if (Input.GetMouseButton(0))
             {
                 if (Ship.AmmoCount[AmmoType] > 0)
+
                 {
-                    Ship.AmmoCount[AmmoType] -= 1;
+                    if (AmmoType != Ship.AmmunitionEnum.Ammo9)
+                    {
+                        // don't reduce the money ammo on fire, only when it hits the shop
+                        Ship.AmmoCount[AmmoType] -= 1;
+                    }
                     GameObject FIRE = Instantiate(Ammo, transform.position + transform.forward, Quaternion.identity, transform.parent.parent);
                     Rigidbody RB = FIRE.GetComponent<Rigidbody>();
                     RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward;
