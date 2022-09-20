@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class FiredFromCannon : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //8 types and 2 special
+
+    // each has a high and low tier
+    //Raw Materials, Furniture, Pets, Crew, Money/Pull
     public bool Shrink = false;
     public Ship.AmmunitionEnum AmmoType;
+    public int BaseValue;
+    public bool PickUpAble = false;
     void Start()
     {
         GetComponent<Rigidbody>().AddTorque(transform.forward * Random.Range(0, 25));
@@ -31,7 +36,7 @@ public class FiredFromCannon : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Ship ShipHit = other.GetComponent<Ship>();
-        if (ShipHit != null)
+        if (ShipHit != null && PickUpAble == true)
         {
             Ship.AmmoCount[AmmoType] += 1;
             Destroy(gameObject);
