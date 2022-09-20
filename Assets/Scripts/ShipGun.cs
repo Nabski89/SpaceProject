@@ -15,6 +15,8 @@ public class ShipGun : MonoBehaviour
     public GameObject Ammo8;
     public GameObject Ammo9;
     public GameObject Ammo0;
+
+    public GameObject GunSound;
     GameObject Ammo;
     bool Active = false;
     // Start is called before the first frame update
@@ -124,6 +126,9 @@ public class ShipGun : MonoBehaviour
                     {
                         RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward + transform.forward;
                     }
+                    GameObject GunSoundPEW = Instantiate(GunSound, transform.position, Quaternion.identity);
+                    GunSoundPEW.GetComponent<AudioSource>().volume = 1 - ((4- RB.mass) / 4);
+                    
                 }
             }
 
