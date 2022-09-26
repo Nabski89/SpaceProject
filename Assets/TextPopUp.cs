@@ -8,10 +8,17 @@ public class TextPopUp : MonoBehaviour
     TMPro.TextMeshPro FloatingPrice;
     public string STRINGY;
     // Start is called before the first frame update
+    public string[] Greetings;
+    public string[] Body;
+    public string[] Offer;
+    public int OfferType;
+    public string[] Outro;
     int StringLimit = 0;
     void Start()
     {
         FloatingPrice = GetComponentInChildren<TMPro.TextMeshPro>();
+        OfferType = Random.Range(0, Greetings.Length);
+        STRINGY = Greetings[Random.Range(0, Greetings.Length)] + " "+ Body[Random.Range(0, Body.Length)] + " "+ Offer[Random.Range(0, Offer.Length)] + " "+ Outro[Random.Range(0, Outro.Length)];
         FloatingPrice.text = STRINGY;
         SomeTextBox.SetActive(false);
     }

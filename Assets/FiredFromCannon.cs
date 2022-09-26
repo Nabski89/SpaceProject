@@ -19,11 +19,13 @@ public class FiredFromCannon : MonoBehaviour
     public Ship.AmmunitionEnum AmmoType;
     public int BaseValue;
     public bool PickUpAble = false;
+    Rigidbody m_Rigidbody;
     void Start()
     {
-        GetComponent<Rigidbody>().AddTorque(transform.forward * Random.Range(0, 25));
-        GetComponent<Rigidbody>().AddTorque(transform.right * Random.Range(0, 25));
-        GetComponent<Rigidbody>().AddTorque(transform.up * Random.Range(0, 25));
+        m_Rigidbody = GetComponent<Rigidbody>();
+        m_Rigidbody.AddTorque(transform.forward * Random.Range(0, 25));
+        m_Rigidbody.AddTorque(transform.right * Random.Range(0, 25));
+        m_Rigidbody.AddTorque(transform.up * Random.Range(0, 25));
         transform.parent = null;
         Destroy(gameObject, 30);
     }
@@ -45,8 +47,14 @@ public class FiredFromCannon : MonoBehaviour
         Ship ShipHit = other.GetComponent<Ship>();
         if (ShipHit != null && PickUpAble == true)
         {
-            Ship.AmmoCount[AmmoType] += 1;
-            Destroy(gameObject);
+            if (ShipHit.CargoCapacity + ShipHit.DefaultCapacity + m_Rigidbody.mass > other.GetComponent<Rigidbody>().mass)
+            {
+                Ship.AmmoCount[AmmoType] += 1;
+                other.GetComponent<Rigidbody>().mass += m_Rigidbody.mass;
+                Destroy(gameObject);
+            }
+            else
+                Debug.Log("The ship is full");
         }
     }
 }

@@ -20,10 +20,14 @@ public class Ship : MonoBehaviour
 
     public float timer = 5;
 
+    public int CargoCapacity = 100;
+    public float DefaultCapacity;
+
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody>();
+        DefaultCapacity = m_Rigidbody.mass;
         //this apparently keeps it from spinning in stupid directions
         m_Rigidbody.inertiaTensorRotation = Quaternion.identity;
 
@@ -102,7 +106,6 @@ public class Ship : MonoBehaviour
             RearEngine3.SetActive(false);
             UD_Thrust = 0;
         }
-
         RL_Thrust = 0;
         if (Input.GetKey("d"))
         {
@@ -110,6 +113,7 @@ public class Ship : MonoBehaviour
         }
         if (Input.GetKey("a"))
         {
+
             RL_Thrust = ThrusterValue;
         }
         //pitch and yaw
@@ -154,7 +158,7 @@ public class Ship : MonoBehaviour
         m_Rigidbody.AddForce(transform.up * UD_Thrust);
         //you shouldn't be using RL for anything but to dock
         m_Rigidbody.AddForce(-transform.right * RL_Thrust / 10);
-        m_Rigidbody.AddTorque(transform.forward * Rotate_Thrust / 10);
+        m_Rigidbody.AddTorque(transform.forward * (Rotate_Thrust / m_Rigidbody.mass) / 5);
 
         /* 
            timer -= Time.deltaTime;

@@ -118,7 +118,7 @@ public class ShipGun : MonoBehaviour
                     }
                     GameObject FIRE = Instantiate(Ammo, transform.position + transform.forward, Quaternion.identity, transform.parent.parent);
                     Rigidbody RB = FIRE.GetComponent<Rigidbody>();
-                    RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward;
+                    RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + (transform.forward * 1.5f);
                     transform.position = transform.position - transform.forward * 0.5f * RB.mass;
                     if (FIRE.GetComponent<FiredFromCannon>() == true)
                         FIRE.GetComponent<FiredFromCannon>().AmmoType = AmmoType;
@@ -127,8 +127,8 @@ public class ShipGun : MonoBehaviour
                         RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward + transform.forward;
                     }
                     GameObject GunSoundPEW = Instantiate(GunSound, transform.position, Quaternion.identity);
-                    GunSoundPEW.GetComponent<AudioSource>().volume = 1 - ((4- RB.mass) / 4);
-                    
+                    GunSoundPEW.GetComponent<AudioSource>().volume = 1 - ((4 - RB.mass) / 4);
+
                 }
             }
 

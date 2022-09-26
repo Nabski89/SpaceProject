@@ -6,29 +6,42 @@ public class RandomizeMovement : MonoBehaviour
 {
 
     Rigidbody m_Rigidbody;
-    public float Thrust = 100;
-    public bool Drift = true;
-    public bool Spin = true;
+    public float Thrust = 1000;
+    public bool DriftUP = false;
+    public bool DriftRL = false;
+    public bool Spin = false;
+    public bool SpingWild = false;
 
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        Thrust = Random.Range(-Thrust, Thrust);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if (Drift == true)
+        if (DriftUP == true)
         {
-            m_Rigidbody.AddForce(transform.up * Thrust);
-            m_Rigidbody.AddForce(-transform.right * Thrust);
+            float Thrusty = Random.Range(-Thrust, Thrust);
+            m_Rigidbody.AddForce(transform.up * Thrusty);
         }
+        if (DriftRL == true)
+        {
+            float Thrusty = Random.Range(-Thrust, Thrust);
+            m_Rigidbody.AddForce(-transform.right * Thrusty);
+        }
+
         if (Spin == true)
         {
-            m_Rigidbody.AddTorque(transform.forward * Thrust * 5);
+            float Thrusty = Random.Range(-Thrust, Thrust);
+            m_Rigidbody.AddTorque(transform.forward * Thrusty * 5);
         }
-     //   Destroy(this);
+        if (SpingWild == true)
+        {
+            float Thrusty = Random.Range(-Thrust, Thrust);
+            m_Rigidbody.AddTorque(transform.up * Thrusty * 5);
+        }
+        Destroy(this);
     }
 }
