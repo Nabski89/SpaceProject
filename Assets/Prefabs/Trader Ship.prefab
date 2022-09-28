@@ -106,14 +106,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3938822865989470979}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 1.3299999, y: 0.9200001, z: 0}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: -1.33, y: 0.9200001, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 3}
   m_Children:
   - {fileID: 3938822866654487231}
   m_Father: {fileID: 3938822866022384185}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!33 &3938822865989471036
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 3938822866502662595}
   - component: {fileID: 3938822866502662598}
   - component: {fileID: 3938822866502662594}
+  - component: {fileID: 8606918301798891556}
   m_Layer: 0
   m_Name: Trader Ship
   m_TagString: Untagged
@@ -326,6 +327,22 @@ MonoBehaviour:
   - Win Win.
   - We do good work.
   - Communications Code 19-15-19.
+--- !u!54 &8606918301798891556
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938822866502662599}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3938822866654487170
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +369,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3938822866654487170}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.03439474}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 0.025, y: 0.025, z: 0.33333334}
   m_Children: []
   m_Father: {fileID: 3938822865989470978}
@@ -360,7 +377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0011740923, y: 0.021322701}
+  m_AnchoredPosition: {x: 0, y: 0.023}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3938822866654487228
@@ -454,8 +471,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 2.5
+  m_fontSizeBase: 2.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -592,8 +609,10 @@ GameObject:
   - component: {fileID: 3938822867278860063}
   - component: {fileID: 3938822867278860060}
   - component: {fileID: 3938822867278860062}
-  - component: {fileID: 3938822867278860057}
   - component: {fileID: 3938822867278860056}
+  - component: {fileID: 5194367555743046233}
+  - component: {fileID: 731700973337166110}
+  - component: {fileID: 7353947524773122124}
   m_Layer: 0
   m_Name: Ship Model
   m_TagString: Untagged
@@ -685,22 +704,6 @@ MonoBehaviour:
   DriftRL: 0
   Spin: 1
   SpingWild: 1
---- !u!54 &3938822867278860057
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938822867278860130}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &3938822867278860056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,6 +721,47 @@ MonoBehaviour:
   - {fileID: -9050895781452457822, guid: 0e376fd8bb15c934da6dd03f564d2c19, type: 3}
   - {fileID: 8186182652194446775, guid: 7ac56d3799f20a04c8982e250aacaf07, type: 3}
   - {fileID: 5563918874386451869, guid: df64fc5845f069c48b2cbf739700cc08, type: 3}
+--- !u!114 &5194367555743046233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938822867278860130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4fb887e8c9d724592a8808a834cfa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &731700973337166110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938822867278860130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8163362, y: 2.5635185, z: 0.7389744}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7353947524773122124
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938822867278860130}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4075986836078715737
 GameObject:
   m_ObjectHideFlags: 0

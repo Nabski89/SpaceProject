@@ -57,7 +57,6 @@ public class Shop : MonoBehaviour
                     Destroy(other.gameObject);
                 }
             }
-
         }
     }
 }
