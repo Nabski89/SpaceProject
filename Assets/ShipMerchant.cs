@@ -9,6 +9,7 @@ public class ShipMerchant : MonoBehaviour
     int Price = 1;
     float UD_Thrust = 0;
     Rigidbody m_Rigidbody;
+    
     void Start()
     {
         m_Rigidbody = GetComponentInParent<Rigidbody>();
@@ -43,6 +44,7 @@ public class ShipMerchant : MonoBehaviour
                     Destroy(transform.parent.gameObject, 1);
                     transform.parent = null;
                     Destroy(gameObject, 20);
+                    m_Rigidbody.angularDrag=1;
                 }
             }
         }
