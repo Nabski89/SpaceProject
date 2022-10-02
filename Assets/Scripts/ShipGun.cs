@@ -15,6 +15,7 @@ public class ShipGun : MonoBehaviour
     public GameObject Ammo8;
     public GameObject Ammo9;
     public GameObject Ammo0;
+    Rigidbody ship_Rigidbody;
 
     public GameObject GunSound;
     GameObject Ammo;
@@ -22,6 +23,7 @@ public class ShipGun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ship_Rigidbody = transform.parent.parent.GetComponent<Rigidbody>();
         Ammo = Ammo1;
     }
 
@@ -118,7 +120,7 @@ public class ShipGun : MonoBehaviour
                     }
                     GameObject FIRE = Instantiate(Ammo, transform.position + transform.forward, Quaternion.identity, transform.parent.parent);
                     Rigidbody RB = FIRE.GetComponent<Rigidbody>();
-                    RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + (transform.forward * 1.5f);
+                    RB.velocity = ship_Rigidbody.velocity + (transform.forward * 1.5f);
                     transform.position = transform.position - transform.forward * 0.5f * RB.mass;
                     if (FIRE.GetComponent<FiredFromCannon>() == true)
                         FIRE.GetComponent<FiredFromCannon>().AmmoType = AmmoType;
@@ -126,9 +128,12 @@ public class ShipGun : MonoBehaviour
                     {
                         RB.velocity = transform.parent.parent.GetComponent<Rigidbody>().velocity + transform.forward + transform.forward;
                     }
+                    //remove the weight of the thing you fired from the ship
+                    ship_Rigidbody.mass -= RB.mass;
+
+                    //sound effect is scaled by the mass of what we fired
                     GameObject GunSoundPEW = Instantiate(GunSound, transform.position, Quaternion.identity);
                     GunSoundPEW.GetComponent<AudioSource>().volume = 1 - ((4 - RB.mass) / 4);
-
                 }
             }
 

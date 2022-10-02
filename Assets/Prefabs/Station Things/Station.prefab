@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6510603307251683232}
   - component: {fileID: 7326334029123950328}
   - component: {fileID: 1995232048622766813}
+  - component: {fileID: 4898838116180441022}
   m_Layer: 0
   m_Name: Station
   m_TagString: Untagged
@@ -135,6 +136,23 @@ MonoBehaviour:
   DriftUP: 0
   DriftRL: 0
   Spin: 1
+  SpingWild: 0
+--- !u!114 &4898838116180441022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347933465109868434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733d0a1d0da57b24e8f8a6c9490d1687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shop1: {fileID: 2843348598959478106}
+  Shop2: {fileID: 4328483468056420262}
+  Shop3: {fileID: 2302751023798490266}
+  Shop4: {fileID: 7119313888336567793}
 --- !u!1001 &2256888019740621310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 7596941139763631503, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -1444460858095362738, guid: a3bb0431df86b0b44aaad74c66dc0b8b, type: 3}
+      objectReference: {fileID: 441916079295038247, guid: 5c910f66da844344eaacdd2314f73841, type: 3}
     - target: {fileID: 8979469132771656299, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_Name
       value: Station Cube (2)
@@ -201,6 +219,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 651579462714465674, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
   m_PrefabInstance: {fileID: 2256888019740621310}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2302751023798490266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 47024365372730724, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
+  m_PrefabInstance: {fileID: 2256888019740621310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3661e64e640ef6641a3908a2723c4e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2869507736129894462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,7 +284,7 @@ PrefabInstance:
     - target: {fileID: 7596941139763631503, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1543882271277877401, guid: 44ab10451b5f8794da183070551113d3, type: 3}
+      objectReference: {fileID: 441916079295038247, guid: 5c910f66da844344eaacdd2314f73841, type: 3}
     - target: {fileID: 8979469132771656299, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_Name
       value: Station Cube
@@ -267,6 +296,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 651579462714465674, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
   m_PrefabInstance: {fileID: 2869507736129894462}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2843348598959478106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 47024365372730724, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
+  m_PrefabInstance: {fileID: 2869507736129894462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3661e64e640ef6641a3908a2723c4e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4374909138559513282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,6 +314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7885809609034176098}
     m_Modifications:
+    - target: {fileID: 47024365372730724, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
+      propertyPath: Producer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 651579462714465674, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -318,6 +362,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7596941139763631503, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -212811262493398796, guid: 53a8fd752b40ebd419a7875a6af5406c, type: 3}
     - target: {fileID: 8979469132771656299, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_Name
       value: Station Cube (1)
@@ -329,6 +377,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 651579462714465674, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
   m_PrefabInstance: {fileID: 4374909138559513282}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4328483468056420262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 47024365372730724, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
+  m_PrefabInstance: {fileID: 4374909138559513282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3661e64e640ef6641a3908a2723c4e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6039838219619478141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,6 +473,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7885809609034176098}
     m_Modifications:
+    - target: {fileID: 47024365372730724, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
+      propertyPath: Producer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 651579462714465674, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -461,7 +524,7 @@ PrefabInstance:
     - target: {fileID: 7596941139763631503, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f4a0f078012bb064293c813baf2b4753, type: 2}
+      objectReference: {fileID: -212811262493398796, guid: 53a8fd752b40ebd419a7875a6af5406c, type: 3}
     - target: {fileID: 8979469132771656299, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
       propertyPath: m_Name
       value: Station Cube (3)
@@ -473,6 +536,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 651579462714465674, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
   m_PrefabInstance: {fileID: 7092028307928658069}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7119313888336567793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 47024365372730724, guid: 1b76a3f4cec430d42aa636e28b5f15a5, type: 3}
+  m_PrefabInstance: {fileID: 7092028307928658069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3661e64e640ef6641a3908a2723c4e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7589053615599073676
 PrefabInstance:
   m_ObjectHideFlags: 0

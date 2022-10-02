@@ -292,10 +292,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuySell:
-  - {fileID: 2760237465252306980, guid: 4a15bf63ba3409444b8acd971435da6a, type: 3}
   - {fileID: 3156741480967927844, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
-  - {fileID: 5362878095275287586, guid: 43a978422e0a7b444963c9388e550c4a, type: 3}
+  - {fileID: 7279729337360384520, guid: 0c144250518a7004f895d6d689870994, type: 3}
+  - {fileID: 4275229296850766890, guid: d6516cbddad8bd044a5bcc128198c030, type: 3}
+  - {fileID: 2617370362738501191, guid: e458841d026cc904e86f5f32687654cf, type: 3}
   - {fileID: 3760332922519479097, guid: f594afb1b8f35494f826f275bf05a0d2, type: 3}
+  - {fileID: 5362878095275287586, guid: 43a978422e0a7b444963c9388e550c4a, type: 3}
+  - {fileID: 2760237465252306980, guid: 4a15bf63ba3409444b8acd971435da6a, type: 3}
+  - {fileID: 12803012680818226, guid: ec2af81295ca03f468b3c371da9db442, type: 3}
   Price: 1
   StockNumber: 0
   StockHave: 0

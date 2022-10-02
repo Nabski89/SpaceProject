@@ -8,29 +8,47 @@ public class Shop : MonoBehaviour
     public GameObject[] BuySell;
 
     GameObject Display;
-
     public float Price = 1;
     public int StockNumber;
     public float StockHave;
     public float StockWant;
+    float timer = 0;
     TMPro.TextMeshPro FloatingPrice;
+    public bool Producer = false;
 
 
-    void Start()
+    public void StartUpFromParent(int WhatTypeToSpawn)
     {
         FloatingPrice = GetComponentInChildren<TMPro.TextMeshPro>();
         GetComponent<Rigidbody>().AddTorque(transform.forward * 5);
-        StockNumber = Random.Range(0, BuySell.Length);
-        Display = Instantiate(BuySell[StockNumber], transform.position - transform.forward * 6.5f, Quaternion.identity, transform);
+        StockNumber = WhatTypeToSpawn;
+        Display = Instantiate(BuySell[WhatTypeToSpawn], transform.position - transform.forward * 6.5f, Quaternion.identity, transform);
         Price = Display.GetComponent<FiredFromCannon>().BaseValue;
         Destroy(Display.GetComponent<FiredFromCannon>());
-        StockWant = Random.Range(5, 10);
+        StockWant = StockWant + Random.Range(5, 10);
         StockHave = Random.Range(0, StockWant * 2);
+
+        PriceUpdate();
     }
     void Update()
     {
-        int Display = Mathf.RoundToInt(Price * (StockWant + 5f) / (StockHave + 5f));
-        FloatingPrice.text = Display.ToString();
+
+        if (StockHave != StockWant)
+        {
+            timer += Time.deltaTime * Mathf.Abs(StockWant - StockHave);
+            if (timer > 30)
+            {
+                timer -= 30;
+
+                if (StockHave != StockWant)
+                    if (Producer == true)
+                        StockHave += 1;
+                    else
+                        StockHave -= 1;
+
+                PriceUpdate();
+            }
+        }
 
     }
     void OnTriggerEnter(Collider other)
@@ -58,5 +76,12 @@ public class Shop : MonoBehaviour
                 }
             }
         }
+        PriceUpdate();
+    }
+
+    void PriceUpdate()
+    {
+        int Display = Mathf.RoundToInt(Price * (StockWant + 5f) / (StockHave + 5f));
+        FloatingPrice.text = Display.ToString();
     }
 }
