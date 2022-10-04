@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9137212898413625615, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2614673937417787545, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5818dd3b1cf95240828ae668bcc0e20, type: 3}
@@ -91,11 +95,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3391176875493043692}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5050001
-  m_Center: {x: -0.00000002980233, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3333811474714949487
 MonoBehaviour:
   m_ObjectHideFlags: 0

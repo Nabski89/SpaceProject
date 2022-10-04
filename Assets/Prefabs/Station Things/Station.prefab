@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 7885809609034176098}
   - component: {fileID: 9088109285966501195}
   - component: {fileID: 3243066354491952629}
-  - component: {fileID: 6510603307251683232}
   - component: {fileID: 7326334029123950328}
   - component: {fileID: 1995232048622766813}
   - component: {fileID: 4898838116180441022}
+  - component: {fileID: 5514269313481796150}
+  - component: {fileID: 1263196863052049838}
   m_Layer: 0
   m_Name: Station
   m_TagString: Untagged
@@ -91,19 +92,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6510603307251683232
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6347933465109868434}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7326334029123950328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,10 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Thrust: 10
-  DriftUP: 0
-  DriftRL: 0
-  Spin: 1
-  SpingWild: 0
+  SetDriftUP: 0
+  RDriftUP: 0
+  RDriftRL: 0
+  RSpin: 0
+  RSpingWild: 0
 --- !u!114 &4898838116180441022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +142,33 @@ MonoBehaviour:
   Shop2: {fileID: 4328483468056420262}
   Shop3: {fileID: 2302751023798490266}
   Shop4: {fileID: 7119313888336567793}
+--- !u!136 &5514269313481796150
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347933465109868434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 7.6
+  m_Height: 25
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -7}
+--- !u!114 &1263196863052049838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347933465109868434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e85229d0aa396a40be55e26efe5ba95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlowField: 1
 --- !u!1001 &2256888019740621310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,7 +475,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 871758754386312500, guid: 18f8c1c4a78c67b4b8d0ac33e2f2b03c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 18f8c1c4a78c67b4b8d0ac33e2f2b03c, type: 3}
 --- !u!4 &7557746139623526027 stripped
 Transform:
@@ -622,7 +639,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -1293887620268828351, guid: 5c910f66da844344eaacdd2314f73841, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 871758754386312500, guid: 18f8c1c4a78c67b4b8d0ac33e2f2b03c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 18f8c1c4a78c67b4b8d0ac33e2f2b03c, type: 3}
 --- !u!4 &5936569769187941754 stripped
 Transform:

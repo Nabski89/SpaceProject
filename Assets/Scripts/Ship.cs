@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    // to do, add some environmental hazards
+
+
+
     public Vector3 VelocityTrack;
     Rigidbody m_Rigidbody;
     public float ThrusterValue = 1;
@@ -35,12 +39,14 @@ public class Ship : MonoBehaviour
         Application.targetFrameRate = 60;
 
         AmmoCount.Add(AmmunitionEnum.Ammo1, Random.Range(0, 16));
+
         AmmoCount.Add(AmmunitionEnum.Ammo2, Random.Range(0, 14));
         AmmoCount.Add(AmmunitionEnum.Ammo3, Random.Range(0, 12));
         AmmoCount.Add(AmmunitionEnum.Ammo4, Random.Range(0, 10));
         AmmoCount.Add(AmmunitionEnum.Ammo5, Random.Range(0, 8));
         AmmoCount.Add(AmmunitionEnum.Ammo6, Random.Range(0, 6));
         AmmoCount.Add(AmmunitionEnum.Ammo7, Random.Range(0, 4));
+
         AmmoCount.Add(AmmunitionEnum.Ammo8, 3);
         AmmoCount.Add(AmmunitionEnum.Ammo9, 1);
         AmmoCount.Add(AmmunitionEnum.Ammo0, 5);

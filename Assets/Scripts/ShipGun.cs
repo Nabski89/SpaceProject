@@ -121,7 +121,7 @@ public class ShipGun : MonoBehaviour
                     GameObject FIRE = Instantiate(Ammo, transform.position + transform.forward, Quaternion.identity, transform.parent.parent);
                     Rigidbody RB = FIRE.GetComponent<Rigidbody>();
                     RB.velocity = ship_Rigidbody.velocity + (transform.forward * 1.5f);
-                    transform.position = transform.position - transform.forward * 0.5f * RB.mass;
+                    transform.position = transform.position - transform.forward * 0.5f * RB.mass/10;
                     if (FIRE.GetComponent<FiredFromCannon>() == true)
                         FIRE.GetComponent<FiredFromCannon>().AmmoType = AmmoType;
                     if (AmmoType == Ship.AmmunitionEnum.Ammo0)
@@ -133,7 +133,7 @@ public class ShipGun : MonoBehaviour
 
                     //sound effect is scaled by the mass of what we fired
                     GameObject GunSoundPEW = Instantiate(GunSound, transform.position, Quaternion.identity);
-                    GunSoundPEW.GetComponent<AudioSource>().volume = 1 - ((4 - RB.mass) / 4);
+                    GunSoundPEW.GetComponent<AudioSource>().volume = 1 - ((15 - RB.mass) / 15);
                 }
             }
 
@@ -147,11 +147,6 @@ public class ShipGun : MonoBehaviour
             }
             transform.LookAt(transform.parent.parent.position, Vector3.left);
         }
-
-    }
-
-    void fivemillionammochecks()
-    {
 
     }
 }

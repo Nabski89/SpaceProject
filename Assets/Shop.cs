@@ -22,6 +22,7 @@ public class Shop : MonoBehaviour
         FloatingPrice = GetComponentInChildren<TMPro.TextMeshPro>();
         GetComponent<Rigidbody>().AddTorque(transform.forward * 5);
         StockNumber = WhatTypeToSpawn;
+        //This display is causing an error
         Display = Instantiate(BuySell[WhatTypeToSpawn], transform.position - transform.forward * 6.5f, Quaternion.identity, transform);
         Price = Display.GetComponent<FiredFromCannon>().BaseValue;
         Destroy(Display.GetComponent<FiredFromCannon>());
