@@ -21,6 +21,9 @@ public class Ship : MonoBehaviour
     public GameObject ReverseEngine1;
     public GameObject ForwardEngineRight;
     public GameObject ForwardEngineLeft;
+    public GameObject SideEngineRight;
+    public GameObject SideEngineLeft;
+
 
     public float timer = 5;
 
@@ -112,16 +115,30 @@ public class Ship : MonoBehaviour
             RearEngine3.SetActive(false);
             UD_Thrust = 0;
         }
-        RL_Thrust = 0;
-        if (Input.GetKey("d"))
+        if (Input.GetKeyDown("d"))
         {
-            RL_Thrust = -ThrusterValue;
+            RL_Thrust -= ThrusterValue;
+            SideEngineLeft.SetActive(true);
         }
-        if (Input.GetKey("a"))
+        if (Input.GetKeyDown("a"))
         {
 
-            RL_Thrust = ThrusterValue;
+            RL_Thrust += ThrusterValue;
+            SideEngineRight.SetActive(true);
         }
+        if (Input.GetKeyUp("d"))
+        {
+            RL_Thrust += ThrusterValue;
+            SideEngineLeft.SetActive(false);
+        }
+        if (Input.GetKeyUp("a"))
+        {
+
+            RL_Thrust -= ThrusterValue;
+            SideEngineRight.SetActive(false);
+        }
+
+
         //pitch and yaw
         if (Input.GetKey("q") && ForwardEngineLeft.activeSelf == false)
         {
