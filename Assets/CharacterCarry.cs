@@ -18,8 +18,7 @@ public class CharacterCarry : MonoBehaviour
             cooldown -= 1;
         if (Input.GetKeyDown("e") && transform.childCount == 1 && cooldown < 1)
         {
-            Debug.Log("I'm gonnna AHHHHH");
-            transform.DetachChildren();
+            GetComponentInChildren<ObjectCarry>().DropIt();
         }
     }
 
@@ -32,9 +31,13 @@ public class CharacterCarry : MonoBehaviour
 
             if (Input.GetKeyDown("e") && transform.childCount == 0)
             {
-                Debug.Log("fuck");cooldown = 5;
+                Debug.Log("fuck");
+                cooldown = 5;
                 other.transform.parent = transform;
-                
+                other.transform.localScale = Vector3.one * 0.5f;
+                other.transform.position = transform.position;
+                other.transform.rotation = transform.parent.rotation;
+
             }
         }
     }
