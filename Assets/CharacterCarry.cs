@@ -5,11 +5,7 @@ using UnityEngine;
 public class CharacterCarry : MonoBehaviour
 {
     int cooldown = 5;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public CharAnimatorScript AnimateReference;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +15,7 @@ public class CharacterCarry : MonoBehaviour
         if (Input.GetKeyDown("e") && transform.childCount == 1 && cooldown < 1)
         {
             GetComponentInChildren<ObjectCarry>().DropIt();
+            AnimateReference.Drop();
         }
     }
 
@@ -37,7 +34,7 @@ public class CharacterCarry : MonoBehaviour
                 other.transform.localScale = Vector3.one * 0.5f;
                 other.transform.position = transform.position;
                 other.transform.rotation = transform.parent.rotation;
-
+                AnimateReference.Grab();
             }
         }
     }
