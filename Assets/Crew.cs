@@ -5,7 +5,7 @@ using UnityEngine;
 public class Crew : MonoBehaviour
 {
     Rigidbody rb;
-    private float playerSpeed = 1.0f;
+    public float playerSpeed = 1.0f;
     public CharAnimatorScript AnimateReference;
 
     /*

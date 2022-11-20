@@ -14,7 +14,7 @@ public class WeightClass : MonoBehaviour
     {
         //   Debug.Log(GetComponent<Image>());
         WeightBar = GetComponent<Image>();
-        Debug.Log(WeightBar);
+ //       Debug.Log(WeightBar);
         m_Rigidbody = MainShip.GetComponent<Rigidbody>();
         MainShipScript = MainShip.GetComponent<Ship>();
         WeightBar.fillAmount = m_Rigidbody.mass / (MainShipScript.CargoCapacity + MainShipScript.DefaultCapacity);
