@@ -8,22 +8,19 @@ public class CharacterCarry : MonoBehaviour
     bool CarryAnything = false;
     public CharAnimatorScript AnimateReference;
 
+    // Bit shift the index of the layer (8) to get a bit mask, This would cast rays only against colliders in layer 8.
+    int FurniturelayerMask = 1 << 8;
+    int ObjectlayerMask = 1 << 7;
     FurnitureCarry FurnitureHold;
     ObjectCarry ObjectHold;
+    ObjectSpawn SpawnRayd;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (cooldown > 0)
             cooldown -= 1;
         if (Input.GetKeyDown("e"))
         {
-            // Bit shift the index of the layer (8) to get a bit mask
-            int FurniturelayerMask = 8;
-
-            // This would cast rays only against colliders in layer 8.
-            // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
-            FurniturelayerMask = ~FurniturelayerMask;
 
             RaycastHit hitFurn;
             // Does the ray intersect any objects excluding the player layer
@@ -31,35 +28,30 @@ public class CharacterCarry : MonoBehaviour
             if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitFurn, 5, FurniturelayerMask))
             {
                 Debug.DrawRay(transform.position + Vector3.back, (transform.up * -1 * hitFurn.distance), Color.yellow);
-                Debug.Log("Did Hit" + hitFurn.transform.GetComponent<FurnitureCarry>());
+                Debug.Log("Did Hit the furniture" + hitFurn.transform);
                 FurnitureHold = hitFurn.transform.GetComponent<FurnitureCarry>();
             }
             else
             {
                 Debug.DrawRay(transform.position + Vector3.back, (transform.up * -5), Color.green, 10f);
-                Debug.Log("Did not Hit");
+                Debug.Log("Did not Hit a furniture");
             }
 
             //Now do it again for objects
-            int ObjectlayerMask = 7;
-            ObjectlayerMask = ~ObjectlayerMask;
+
             RaycastHit hitObj;
             //     Debug.DrawLine(transform.position + Vector3.back, transform.position - (transform.up * 5) + Vector3.back, Color.white, 10.0f);
             if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitObj, 5, ObjectlayerMask))
             {
                 Debug.DrawRay(transform.position + Vector3.back, (transform.up * -1 * hitObj.distance), Color.red);
-                Debug.Log("Did Hit" + hitObj.transform.GetComponent<ObjectCarry>());
+                Debug.Log("Did Hit the object" + hitObj.transform);
                 ObjectHold = hitObj.transform.GetComponent<ObjectCarry>();
             }
             else
             {
                 Debug.DrawRay(transform.position + Vector3.back, (transform.up * -5), Color.green, 10f);
-                Debug.Log("Did not Hit");
+                Debug.Log("Did not Hit an object");
             }
-
-
-            //   Debug.Log("Object is " + ObjectHold);
-            // Debug.Log("Furniture is " + FurnitureHold);
 
             if (CarryAnything == true && cooldown < 1)
             {
@@ -126,6 +118,22 @@ public class CharacterCarry : MonoBehaviour
                         cooldown = 5;
                         CarryAnything = true;
                     }
+                }
+            }
+        }
+        if (Input.GetKey("r"))
+        {
+            RaycastHit hitSpawn;
+            if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitSpawn, 5, ObjectlayerMask))
+            {
+                SpawnRayd = hitSpawn.transform.GetComponent<ObjectSpawn>();
+
+                SpawnRayd.Progress += Time.deltaTime;
+                if (SpawnRayd.Progress > SpawnRayd.ProgressReq && CarryAnything == false)
+                {
+                    Instantiate(SpawnRayd.ObjectToSpawn, transform.position - transform.up, transform.rotation, transform);
+                    SpawnRayd.Progress = 0;
+                    CarryAnything = true;
                 }
             }
         }
