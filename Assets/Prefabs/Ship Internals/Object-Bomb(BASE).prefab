@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6258588665423444519}
   - component: {fileID: 6258588665423444518}
   - component: {fileID: 6258588665423444520}
-  m_Layer: 0
-  m_Name: Bomb
+  m_Layer: 7
+  m_Name: Object-Bomb(BASE)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
