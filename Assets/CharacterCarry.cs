@@ -11,6 +11,7 @@ public class CharacterCarry : MonoBehaviour
     // Bit shift the index of the layer (8) to get a bit mask, This would cast rays only against colliders in layer 8.
     int FurniturelayerMask = 1 << 8;
     int ObjectlayerMask = 1 << 7;
+    public float CarryHeightMULT = 1;
     //I need to clear these out
     FurnitureCarry FurnitureHold;
     ObjectCarry ObjectHold;
@@ -72,7 +73,7 @@ public class CharacterCarry : MonoBehaviour
                         ObjectHold.gameObject.transform.position = transform.position - transform.up;
                         //- transform.up/ 2;
                         ObjectHold.gameObject.transform.rotation = transform.parent.rotation;
-
+                        ObjectHold.GetComponentInChildren<ObjectCarry>().GrabIt();
                         AnimateReference.Grab();
                         cooldown = 5;
                         CarryAnything = true;
@@ -129,14 +130,18 @@ public class CharacterCarry : MonoBehaviour
             RaycastHit hitSpawn;
             if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitSpawn, 5, ObjectlayerMask))
             {
+                Debug.Log("Trying to spawn a" + hitSpawn.transform);
                 SpawnRayd = hitSpawn.transform.GetComponent<ObjectSpawn>();
-
-                SpawnRayd.Progress += Time.deltaTime;
-                if (SpawnRayd.Progress > SpawnRayd.ProgressReq && CarryAnything == false)
+                if (SpawnRayd != null)
                 {
-                    Instantiate(SpawnRayd.ObjectToSpawn, transform.position - transform.up, transform.rotation, transform);
-                    SpawnRayd.Progress = 0;
-                    CarryAnything = true;
+
+                    SpawnRayd.Progress += Time.deltaTime;
+                    if (SpawnRayd.Progress > SpawnRayd.ProgressReq && CarryAnything == false)
+                    {
+                        Instantiate(SpawnRayd.ObjectToSpawn, transform.position - transform.up + (transform.forward * CarryHeightMULT), transform.rotation, transform);
+                        SpawnRayd.Progress = 0;
+                        CarryAnything = true;
+                    }
                 }
             }
         }

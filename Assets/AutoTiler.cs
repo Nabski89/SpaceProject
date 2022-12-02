@@ -17,12 +17,24 @@ public class AutoTiler : MonoBehaviour
         //camera wants width/2 and height /6 -3
         width += 1;
         height += 1;
-        for (int y = 0; y < height+1; ++y)
+        for (int y = 0; y < height + 1; ++y)
         {
-            for (int x = 0; x < width+1; ++x)
+            for (int x = 0; x < width + 1; ++x)
             {
+                //the edges
                 if (y == 0 || y == height || x == 0 || x == width)
-                    Instantiate(wall, new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z - 0.16f), Quaternion.identity, transform);
+                {
+                    if (x == 0 && y != 0 && y != height)
+                        Instantiate(wall, new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z - 0.16f), Quaternion.Euler(0, 0, -90), transform);
+                    if (x == width && y != 0 && y != height)
+                        Instantiate(wall, new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z - 0.16f), Quaternion.Euler(0, 0, 90), transform);
+                    if (y == 0 && x != 0 && x != width)
+                        Instantiate(wall, new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z - 0.16f), Quaternion.identity, transform);
+                    if (y == height && x != 0 && x != width)
+                        Instantiate(wall, new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z - 0.16f), Quaternion.Euler(0, 0, -180), transform);
+
+
+                }
                 else
                     Instantiate(block, new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z), Quaternion.identity, transform);
             }

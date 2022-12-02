@@ -12,10 +12,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6180081590050473818, guid: 13e8b0d39283d734b8d48c9f338b831d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6180081590050473818, guid: 13e8b0d39283d734b8d48c9f338b831d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -59,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7091996110585907455, guid: 13e8b0d39283d734b8d48c9f338b831d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8826107327603606007, guid: 37bc02115ba47a2468ccdb5d92bbf80c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e8b0d39283d734b8d48c9f338b831d, type: 3}
 --- !u!1 &8624366120811440917 stripped
