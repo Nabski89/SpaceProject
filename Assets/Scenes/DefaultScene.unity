@@ -5086,7 +5086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7049553717104525590, guid: 49cc5409bf092bc4ebc4ec4381367dad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7049553717104525590, guid: 49cc5409bf092bc4ebc4ec4381367dad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5490,7 +5490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485710780932369007, guid: 6e45342af428e4243bc3dccd18b61582, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6485710780932369007, guid: 6e45342af428e4243bc3dccd18b61582, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6684,7 +6684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859253785880281180, guid: e8258c4d3c05d9e4eb74acd8c71301e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859253785880281180, guid: e8258c4d3c05d9e4eb74acd8c71301e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6742,6 +6742,10 @@ PrefabInstance:
       propertyPath: CookedVersion
       value: 
       objectReference: {fileID: 340753916}
+    - target: {fileID: 6258588665423444520, guid: e8258c4d3c05d9e4eb74acd8c71301e5, type: 3}
+      propertyPath: CookRequirement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6492942626087607014, guid: e8258c4d3c05d9e4eb74acd8c71301e5, type: 3}
       propertyPath: m_Name
       value: Bomb

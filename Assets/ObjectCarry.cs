@@ -36,8 +36,8 @@ public class ObjectCarry : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.localScale = Vector3.one;
         Placed = true;
-        if (GetComponentInParent<Burner>() != null)
-            DoThingRate = GetComponentInParent<Burner>().CookSpeed;
+        if (transform.parent.GetComponentInChildren<Burner>() != null)
+            DoThingRate = transform.parent.GetComponentInChildren<Burner>().CookSpeed;
     }
     public void GrabIt()
     {
@@ -52,7 +52,7 @@ public class ObjectCarry : MonoBehaviour
             if (CookAmount > CookRequirement)
             {
 
-                GameObject SpawnCooked = Instantiate(CookedVersion, transform.parent);
+                GameObject SpawnCooked = Instantiate(CookedVersion, transform.position, Quaternion.identity, transform.parent);
                 if (SpawnCooked.GetComponent<ObjectCarry>() != null)
                     SpawnCooked.GetComponent<ObjectCarry>().PlaceIt();
                 Destroy(gameObject);
