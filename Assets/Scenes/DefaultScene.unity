@@ -5480,6 +5480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: F. Burner
       objectReference: {fileID: 0}
+    - target: {fileID: 6485710780932369000, guid: 6e45342af428e4243bc3dccd18b61582, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6485710780932369007, guid: 6e45342af428e4243bc3dccd18b61582, type: 3}
       propertyPath: m_RootOrder
       value: 11

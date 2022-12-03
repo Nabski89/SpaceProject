@@ -128,3 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272801a7985bfb94899643747cf3c8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoThingRate: 0
+  Placed: 0
+  CookAble: 0
+  CookAmount: 0
+  CookRequirement: 3
+  CookedVersion: {fileID: 2617370362738501191, guid: e458841d026cc904e86f5f32687654cf, type: 3}
+  ProcessAble: 0
+  ProcessVersion: {fileID: 0}
+  FireAble: 0
+  PackageAble: 0

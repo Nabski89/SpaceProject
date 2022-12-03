@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7049553717104525589}
   - component: {fileID: 7049553717104525588}
   - component: {fileID: 7049553717104525591}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Furniture Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
