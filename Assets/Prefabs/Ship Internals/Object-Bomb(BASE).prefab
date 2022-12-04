@@ -130,10 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DoThingRate: 0
   Placed: 0
-  CookAble: 0
+  CookAble: 1
   CookAmount: 0
   CookRequirement: 3
-  CookedVersion: {fileID: 2617370362738501191, guid: e458841d026cc904e86f5f32687654cf, type: 3}
+  CookedVersion: {fileID: 6971265044147860799, guid: 63e195ea0327aea4d93386b69966ce51, type: 3}
   ProcessAble: 0
   ProcessVersion: {fileID: 0}
   FireAble: 0
