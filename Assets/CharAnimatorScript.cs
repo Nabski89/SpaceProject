@@ -16,6 +16,9 @@ public class CharAnimatorScript : MonoBehaviour
     {
         if (Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y) < .1)
             StopMove();
+        else
+            Walking();
+
     }
     public void Walking()
     {

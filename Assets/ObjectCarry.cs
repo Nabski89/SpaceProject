@@ -15,6 +15,8 @@ public class ObjectCarry : MonoBehaviour
     public bool FireAble = false;
     public bool PackageAble = false;
 
+    Rigidbody m_Rigidbody;
+
     //lets start with just cook and process
 
     //CHOP
@@ -43,6 +45,17 @@ public class ObjectCarry : MonoBehaviour
     {
         Debug.Log("YOU PICKED UP A " + transform);
         Placed = false;
+    }
+    public void Launch()
+    {
+        //this tries to put it into the center of the cannon
+        transform.position = transform.position+(Vector3.right*0.5f) + (Vector3.down*0.8f) + Vector3.back;
+        //then remove the constraints and give it some velocity
+        m_Rigidbody = GetComponent<Rigidbody>();
+        m_Rigidbody.constraints = RigidbodyConstraints.None;
+        m_Rigidbody.AddForce(Vector3.right * 500);
+        transform.parent = null;
+        Destroy(gameObject, 10);
     }
     public void Update()
     {

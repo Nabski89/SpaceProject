@@ -30,7 +30,7 @@ public class CharacterCarry : MonoBehaviour
             RaycastHit hitFurn;
             // Does the ray intersect any objects excluding the player layer
             //     Debug.DrawLine(transform.position + Vector3.back, transform.position - (transform.up * 5) + Vector3.back, Color.white, 10.0f);
-            if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitFurn, 5, FurniturelayerMask))
+            if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitFurn, 2, FurniturelayerMask))
             {
                 Debug.DrawRay(transform.position + Vector3.back, (transform.up * -1 * hitFurn.distance), Color.yellow);
                 FurnitureHold = hitFurn.transform.GetComponent<FurnitureCarry>();
@@ -45,7 +45,7 @@ public class CharacterCarry : MonoBehaviour
             //Now do it again for objects
             RaycastHit hitObj;
             //     Debug.DrawLine(transform.position + Vector3.back, transform.position - (transform.up * 5) + Vector3.back, Color.white, 10.0f);
-            if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitObj, 5, ObjectlayerMask))
+            if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitObj, 2, ObjectlayerMask))
             {
                 Debug.DrawRay(transform.position + Vector3.back, (transform.up * -1 * hitObj.distance), Color.red);
                 ObjectHold = hitObj.transform.GetComponent<ObjectCarry>();
@@ -108,7 +108,7 @@ public class CharacterCarry : MonoBehaviour
                 var objicarry = GetComponentInChildren<ObjectCarry>();
                 if (FurnitureHold != null && objicarry != null)
                 {
-                    if (FurnitureHold.gameObject.transform.childCount == 1)
+                    if (FurnitureHold.GetComponentInChildren<ObjectCarry>() == null)
                     {
                         Debug.Log("put this down");
                         objicarry.gameObject.transform.parent = FurnitureHold.transform;
@@ -127,11 +127,16 @@ public class CharacterCarry : MonoBehaviour
         }
         if (Input.GetKey("r"))
         {
-            RaycastHit hitSpawn;
-            if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitSpawn, 5, ObjectlayerMask))
+            RaycastHit hitActivate;
+            if (Physics.Raycast(transform.position + Vector3.back, -1 * transform.up, out hitActivate, 2))
             {
-                Debug.Log("Trying to spawn a" + hitSpawn.transform);
-                SpawnRayd = hitSpawn.transform.GetComponent<ObjectSpawn>();
+                Debug.Log("Trying to activate a" + hitActivate.transform);
+                //gun
+                Gun GunRayd = hitActivate.transform.GetComponent<Gun>();
+                if (GunRayd != null)
+                    GunRayd.Fire();
+                //object spawners
+                SpawnRayd = hitActivate.transform.GetComponentInChildren<ObjectSpawn>();
                 if (SpawnRayd != null)
                 {
 
@@ -143,6 +148,8 @@ public class CharacterCarry : MonoBehaviour
                         CarryAnything = true;
                     }
                 }
+
+
             }
         }
     }
