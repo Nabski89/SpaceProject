@@ -7,6 +7,7 @@ public class CharAnimatorScript : MonoBehaviour
     // Start is called before the first frame update
     Animator mAnimator;
     Rigidbody rb;
+    bool moving = false;
     void Start()
     {
         mAnimator = GetComponent<Animator>();
@@ -14,15 +15,22 @@ public class CharAnimatorScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y) < .1)
-            StopMove();
+        if (Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y) < .01)
+        {
+            if (moving == true)
+                StopMove();
+        }
         else
-            Walking();
+        {
+            if (moving == false)
+                Walking();
+        }
 
     }
     public void Walking()
     {
         mAnimator.SetTrigger("Moving");
+        moving = true;
     }
     public void Grab()
     {
@@ -35,6 +43,7 @@ public class CharAnimatorScript : MonoBehaviour
     public void StopMove()
     {
         mAnimator.SetTrigger("StopMove");
+        moving = false;
     }
 
 
