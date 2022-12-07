@@ -148,7 +148,10 @@ public class CharacterCarry : MonoBehaviour
                         CarryAnything = true;
                     }
                 }
-
+                //captains chair
+                Chair ChairRayd = hitActivate.transform.GetComponent<Chair>();
+                if (ChairRayd != null)
+                    ChairRayd.Sit();
 
             }
         }
