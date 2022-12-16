@@ -117,24 +117,24 @@ public class Ship : MonoBehaviour
         }
         if (Input.GetKeyDown("d"))
         {
-            RL_Thrust -= ThrusterValue;
+            RL_Thrust += ThrusterValue;
             SideEngineLeft.SetActive(true);
         }
         if (Input.GetKeyDown("a"))
         {
 
-            RL_Thrust += ThrusterValue;
+            RL_Thrust -= ThrusterValue;
             SideEngineRight.SetActive(true);
         }
         if (Input.GetKeyUp("d"))
         {
-            RL_Thrust += ThrusterValue;
+            RL_Thrust -= ThrusterValue;
             SideEngineLeft.SetActive(false);
         }
         if (Input.GetKeyUp("a"))
         {
 
-            RL_Thrust -= ThrusterValue;
+            RL_Thrust += ThrusterValue;
             SideEngineRight.SetActive(false);
         }
 
