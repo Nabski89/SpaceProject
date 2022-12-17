@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 358995376758908861, guid: 08f43a1361426014280dc4efdebee606, type: 3}
       propertyPath: m_Name
-      value: Sector
+      value: Mining Sector 2
       objectReference: {fileID: 0}
     - target: {fileID: 7129767922903825530, guid: 08f43a1361426014280dc4efdebee606, type: 3}
       propertyPath: m_RootOrder
@@ -55,5 +55,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7866249346850614441, guid: 08f43a1361426014280dc4efdebee606, type: 3}
+      propertyPath: StationObj
+      value: 
+      objectReference: {fileID: 8111416266994093178, guid: 741f8c4785b8f6d409d0976d6f821a98, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08f43a1361426014280dc4efdebee606, type: 3}

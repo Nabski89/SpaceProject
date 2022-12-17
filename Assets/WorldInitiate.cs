@@ -19,9 +19,9 @@ public class WorldInitiate : MonoBehaviour
         Instantiate(SectorArray[3], new Vector3(-1*ScaleFactor, 0, 0), Quaternion.identity, transform);
         Instantiate(DefaultSector, new Vector3(0, 0, 0), Quaternion.identity, transform);
         Instantiate(SectorArray[4], new Vector3(1*ScaleFactor, 0, 0), Quaternion.identity, transform);
-        Instantiate(SectorArray[6], new Vector3(-1*ScaleFactor, -1*ScaleFactor, 0), Quaternion.identity, transform);
-        Instantiate(SectorArray[7], new Vector3(0, -1*ScaleFactor, 0), Quaternion.identity, transform);
-        Instantiate(SectorArray[8], new Vector3(1*ScaleFactor, -1*ScaleFactor, 0), Quaternion.identity, transform);
+        Instantiate(SectorArray[5], new Vector3(-1*ScaleFactor, -1*ScaleFactor, 0), Quaternion.identity, transform);
+        Instantiate(SectorArray[6], new Vector3(0, -1*ScaleFactor, 0), Quaternion.identity, transform);
+        Instantiate(SectorArray[7], new Vector3(1*ScaleFactor, -1*ScaleFactor, 0), Quaternion.identity, transform);
 
     }
 

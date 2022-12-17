@@ -7,7 +7,6 @@ public class TextPopUp : MonoBehaviour
     public GameObject SomeTextBox;
     TMPro.TextMeshPro FloatingPrice;
     public string STRINGY;
-    // Start is called before the first frame update
     public string[] Greetings;
     public string[] Body;
     public string[] Offer;
